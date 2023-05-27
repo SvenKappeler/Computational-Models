@@ -20,3 +20,23 @@ This will return the path from the start to the end of the maze, which can be vi
 ?- draw(Path).
 ```
 
+## Best First Search
+
+The second technique, **Best First Search**, is implemented in [program2.prolog](link-to-program2.prolog). This strategy searches the maze by always choosing the cell that is closest to the end, according to the Manhattan distance (which equals the sum of the horizontal and vertical distance from the current cell to the end). The search order is south, east, west, then north.
+
+The maze, starting and ending points, as well as invalid spots are represented in the same way as in the "Follow Left Wall" approach. The new predicates, such as `endNorth`, `endSouth`, `endEast`, `endWest`, `moveNorth`, `moveSouth`, `moveEast`, and `moveWest` are used to check the relative location of the end and to generate a new position in the corresponding direction.
+
+The main predicate `solve` is defined as a recursive function that, at each step, tries to move to a new position and continues from there until it reaches the end.
+
+For executing this program, load it into a Prolog interpreter and call the solve predicate:
+
+```prolog
+?- solve(Path).
+```
+
+This will return the path from the start to the end of the maze, which can be visualized by calling:
+
+```prolog
+?- draw(Path).
+```
+
